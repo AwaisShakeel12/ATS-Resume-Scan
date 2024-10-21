@@ -1,0 +1,340 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css2/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+
+
+    <link rel="stylesheet" href="{% static 'css2/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+
+
+    <style>
+
+
+
+
+      
+
+        body{
+           padding: 0;
+           margin: 0;
+        }
+        
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+  background-color: white;
+  margin-top: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+          
+    color:blueviolet;
+    background-color: white;
+            
+    font-size: 20px;
+    /* font-weight: bold; */
+
+}
+
+
+.sidebar {
+    background-color: #f0f0f0;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+   
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    /* color: #337ab7; */
+    color:blueviolet;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #23527c;
+   
+  
+  }
+
+  
+  .btn-style{
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    border-color: blueviolet;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .btn-container{
+    margin-top: 40px;
+  }
+  
+
+
+
+
+
+
+
+.text-box {
+  margin-top: 30px;
+  width: 100%;  
+  height: 100vh;   
+  padding: 10px;              /* Add some padding */
+     /* Background color of the box */
+  border: 1px solid white;     /* Border for the box */
+  border-radius: 5px;         /* Rounded corners */
+            
+  white-space: pre-wrap;       /* Allow wrapping and preserve spaces */
+  word-wrap: break-word;       /* Break long words */
+  overflow-y: auto;
+}
+
+.open{
+
+  width: 100%;
+
+  color: black;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-weight: bold;
+  background-color: forestgreen;
+  border-color: blueviolet;
+  list-style: none;
+  text-decoration: none;
+
+}
+
+.atag{
+  border-color: blueviolet;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+
+}
+
+
+
+
+
+
+form {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+textarea {
+  resize: vertical;
+}
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.button:hover {
+  background-color: #218838;
+}
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+   
+
+    <div style="display: flex; flex-direction: row;">
+
+
+
+            <div class="col-md-3 sidebar">
+
+                <li style="list-style: none; margin-bottom: 20px;">
+                    <a href="">
+                        <img height="60" width="60" src="{% static 'image/logo3.png'%}" alt="">
+                    </a>
+                </li>
+                <ul>
+
+                    <form method="post" action="" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                
+                        <label class="form-label ">Enter Message</label>
+                        <textarea required class="form-control form-input" name="input_text" id="editor" ></textarea>
+                        <br><br>
+                        <label class="form-label ">Enter Subject</label>
+                        <input  class="form-control form-input" type="file" name="upload_file" >
+
+                        <div class="btn-container">
+                 
+
+                         <button class="btn-style" name="button" type="submit"  value="review">Review</button>
+                         <button class="btn-style" name="button" type="submit" value="missing_keyword">Missing Keyword</button>
+                         <button class="btn-style" name="button" type="submit" value="spelling">Spelling & Grammer</button>
+                         <button class="btn-style" name="button" type="submit" value="improvment">improvment</button>
+                        
+                        
+                  
+                                 
+                        </div>
+                        
+
+
+                         
+            
+                    </form>
+
+
+                    <button class="open">
+                    <a class="atag" href="{% url 'create_resume' %}">
+                      Create Resume
+                    </a>
+                  </button>
+
+
+
+                    
+                 
+                  
+                  
+                 
+                </ul>
+            </div>
+
+
+            <div style="width: 100%;">
+
+                
+                <div class="col-md-9" style="margin-left: 10%;">
+            
+                    <form method="POST">
+                        {% csrf_token %}
+                        <h2>Create Your Resume</h2>
+                
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                
+                        <label for="role">Role</label>
+                        <input type="text" id="role" name="role" required>
+                
+                        <label for="role">Education</label>
+                        <input type="text" id="role" name="education" required>
+                
+                        <label for="experience">Experience</label>
+                        <textarea id="experience" name="experience" rows="4" required></textarea>
+                
+                   
+                
+                        <label for="skills">Skills</label>
+                        <textarea id="skills" name="skills" rows="3" required></textarea>
+                
+                        <label for="projects">Projects</label>
+                        <textarea id="projects" name="projects" rows="4" required></textarea>
+                
+                        <label for="certificates">Certificates</label>
+                        <textarea id="certificates" name="certificates" rows="2" required></textarea>
+                
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" required>
+                
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" required>
+                
+                        <label for="linkedin">LinkedIn Profile</label>
+                        <input type="text" id="linkedin" name="linkedin">
+                
+                        <label for="portfolio">Portfolio/Website</label>
+                        <input type="text" id="portfolio" name="portfolio">
+                
+                        <label for="portfolio">address</label>
+                        <input type="text" id="portfolio" name="address">
+                
+                        <button class="button" type="submit">Generate Resume</button>
+                    </form>
+
+                </div>
+             
+            </div>
+    
+    </div>     
+    
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+</body>
+
+
+</html>

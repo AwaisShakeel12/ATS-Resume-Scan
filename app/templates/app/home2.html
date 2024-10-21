@@ -1,0 +1,342 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css2/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+
+
+    <link rel="stylesheet" href="{% static 'css2/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+
+
+    <style>
+
+        body{
+           padding: 0;
+           margin: 0;
+        }
+        
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+  background-color: white;
+  margin-top: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+          
+    color:blueviolet;
+    background-color: white;
+            
+    font-size: 20px;
+    /* font-weight: bold; */
+
+}
+
+
+.sidebar {
+    background-color: #f0f0f0;
+    padding: 20px;
+    height: 100%;
+    height: 100vh;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+   
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    /* color: #337ab7; */
+    color:blueviolet;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #23527c;
+   
+  
+  }
+
+  
+  .btn-style{
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    border-color: blueviolet;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .btn-container{
+    margin-top: 40px;
+  }
+  
+
+
+
+
+
+
+
+
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-left: 30%;
+}
+
+.outer-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: forestgreen;
+  border: 10px solid blueviolet;
+}
+
+.inner-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.range-slider {
+  margin-top: 20px;
+}
+
+.outer-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid white;
+  clip-path: circle(50%);
+  transform: rotate(-90deg);
+  background-color: transparent;
+  transition: 1s linear;
+}
+
+.outer-circle.fill::before {
+  clip-path: polygon(0% 50%, 50% 50%, 50% 100%, 0% 100%);
+}
+
+.progress-70 .outer-circle::before {
+  clip-path: circle(70%);
+}
+  
+
+
+
+.text-box {
+  margin-top: 30px;
+  width: 100%;  
+  height: 100vh;   
+  padding: 10px;              /* Add some padding */
+     /* Background color of the box */
+  border: 1px solid white;     /* Border for the box */
+  border-radius: 5px;         /* Rounded corners */
+            
+  white-space: pre-wrap;       /* Allow wrapping and preserve spaces */
+  word-wrap: break-word;       /* Break long words */
+  overflow-y: auto;
+}
+
+.open{
+
+  width: 100%;
+
+  color: black;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-weight: bold;
+  background-color: forestgreen;
+  border-color: blueviolet;
+  list-style: none;
+  text-decoration: none;
+
+}
+
+.atag{
+  border-color: blueviolet;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+
+}
+
+    </style>
+
+</head>
+<body>
+
+   
+
+    <div style="display: flex; flex-direction: row;">
+
+
+
+            <div class="col-md-3 sidebar" style="height: 200vh;" >
+
+                <li style="list-style: none; margin-bottom: 20px;">
+                    <a href="">
+                        <img height="60" width="60" src="{% static 'image/logo3.png'%}" alt="">
+                    </a>
+                </li>
+                <ul>
+
+                    <form method="post" action="" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                
+                        <label class="form-label ">Enter Job Description</label>
+                        <textarea required class="form-control form-input" name="input_text" id="editor" ></textarea>
+                        <br><br>
+                        <label class="form-label ">Upload Resume</label>
+                        <input  class="form-control form-input" type="file" name="upload_file" >
+
+                        <div class="btn-container">
+                
+                            <button class="btn-style" name="button" type="submit"  value="review">Review</button>
+                            <button class="btn-style" name="button" type="submit" value="missing_keyword">Missing Keyword</button>
+                            <button class="btn-style" name="button" type="submit" value="spelling">Spelling & Grammer</button>
+                            <button class="btn-style" name="button" type="submit" value="improvment">improvment</button>
+                                 
+                        </div>
+       
+            
+                    </form>
+
+
+                    <button class="open">
+                        <a class="atag" href="{% url 'create_resume' %}">
+                          Create Resume
+                        </a>
+                  </button>
+
+                 
+                </ul>
+            </div>
+
+
+            <div style="width: 100%;">
+
+                
+                <div class="col-md-9" style="margin-left: 10%;">
+            
+                    <div id="box2" >
+                      
+                            <div style="align-items: center; text-align: center;">
+                              <h1>ATS & RESUME BUILDER</h1>
+                            </div>
+
+                            <div class="circle-container">
+                              <div class="outer-circle">
+                                  <div class="inner-circle">
+                                    {% if score %}
+                                      <span class="number">{{score}}%</span>
+                                    {% else %}  
+                                      <span class="number">Score</span>
+                                    {% endif %} 
+                                  </div>
+                              </div>
+                          </div>
+
+
+
+                        <div class="text-box">
+
+                          {% if cleaned_response %}
+                              <p style="margin-top:-130px;">{{ cleaned_response|safe }}</p>
+                          {% endif %}
+
+                          
+                          {% if response %}
+                              <p style="margin-top:-130px;">{{response}}</p>
+                          {% endif %}    
+                          
+                          {% if review %}                     
+                                <p style="margin-top:-130px;">{{review}}</p>
+                          {% endif %} 
+                              
+                        </div>  
+
+
+                 
+                        
+                 
+                 
+
+                  
+
+
+                  
+                    
+                    
+                    </div>
+
+                </div>
+             
+            </div>
+    
+    </div>     
+    
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+</body>
+
+
+</html>
